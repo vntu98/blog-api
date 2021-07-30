@@ -16,6 +16,7 @@ class PostResource extends JsonResource
     {
         return [
             'uuid' => $this->uuid,
+            'slug' => $this->slug,
             'title' => $this->title,
             'teaser' => $this->teaser,
             'body' => $this->body,
