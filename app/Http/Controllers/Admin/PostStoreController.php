@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Amin;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\PostResource;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
-class PostIndexController extends Controller
+class PostStoreController extends Controller
 {
     public function __construct()
     {
@@ -16,6 +16,10 @@ class PostIndexController extends Controller
 
     public function __invoke()
     {
-        return PostResource::collection(Post::latest()->get());
+        $post = Post::create([
+            'title' => 'Untitled post'
+        ]);
+
+        return new PostResource($post);
     }
 }
